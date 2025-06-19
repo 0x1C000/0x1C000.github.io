@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>0x1C | Portfolio - Security Researcher</title>
+  <meta name="description" content="Portfolio di 0x1C, Security Researcher: progetti, certificazioni e badge CTF."/>
+  <meta name="keywords" content="0x1C, pentesting, security, portfolio, CTF"/>
+  <meta name="author" content="0x1C"/>
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link rel="stylesheet" href="styles.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="profile-card">
+      <!-- PROFILE -->
+      <div class="profile-pic">
+        <img src="profile.png" alt="Avatar di 0x1C" class="profile-img"/>
+      </div>
+      <h1 data-text="0x1C">0x1C</h1>
+      <div class="alias" data-text="Digital alias: 0x1C">Digital alias: 0x1C</div>
+      <div class="typing-bio-container">
+        <div id="typingBio" class="typing-bio"></div>
+      </div>
+
+      <!-- STATIC VISITOR TERMINAL -->
+      <div class="terminal-box">
+        <div class="terminal-header">
+          <div class="terminal-controls">
+            <div class="control red"></div>
+            <div class="control yellow"></div>
+            <div class="control green"></div>
+          </div>
+          <div class="terminal-title">visitor-info — zsh</div>
+        </div>
+        <div class="terminal-body" id="visitorInfo"></div>
+      </div>
+
+      <!-- NAVIGATION BUTTONS -->
+      <div class="social-links">
+        <a href="#projects" class="gruv-button active" onclick="toggleSection('projects')"><i class="fas fa-code"></i> Projects</a>
+        <a href="#certificates" class="gruv-button" onclick="toggleSection('certificates')"><i class="fas fa-certificate"></i> Certification</a>
+        <a href="#ctf" class="gruv-button" onclick="toggleSection('ctf')"><i class="fas fa-flag"></i> CTF</a>
+        <a href="#contact" class="gruv-button" onclick="toggleSection('contact')"><i class="fas fa-envelope"></i> Contact</a>
+        <a href="https://x.com/0x1C000" class="gruv-button" target="_blank"><i class="fab fa-x-twitter"></i> X</a>
+        <a href="https://discord.com/users/0x1C000" class="gruv-button" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+        <a href="https://github.com/0x1C000" class="gruv-button" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://www.instagram.com/ox1c__/" class="gruv-button" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="#" id="themeToggle" class="gruv-button"><i id="themeIcon" class="fas fa-moon"></i> Toggle Theme</a>
+      </div>
+
+      <!-- PROJECTS SECTION -->
+      <div id="projectsSection" class="section visible">
+        <h2 class="section-header">Security Projects</h2>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web-development">Web Dev</button>
+          <button class="filter-btn" data-filter="cybersecurity">Cybersecurity</button>
+          <button class="filter-btn" data-filter="scripting">Scripting</button>
+          <button class="filter-btn" data-filter="tools">Tools</button>
+        </div>
+        <div class="projects-grid" id="github-projects">
+          <!-- Static fallback if GitHub fails -->
+          <div class="project-card web-development">
+            <h3 class="project-title"><a href="https://akirayuki.online" target="_blank">Akirayuki.online</a></h3>
+            <p class="project-description-github">Collection of security tools and research hosted on Akirayuki.online.</p>
+            <a href="https://akirayuki.online" class="gruv-button">Visit Site</a>
+          </div>
+          <div class="project-card cybersecurity">
+            <h3 class="project-title">
+              <a href="https://github.com/0x1C000/WindowsScript/tree/main/CryptoMiner_scanner" target="_blank">
+                CryptoMiner Scanner
+              </a>
+            </h3>
+            <p class="project-description-github">Windows utility that scans for cryptomining infections by checking processes, scheduled tasks and registry. Fully tested on Windows 11 Pro.</p>
+            <a href="https://github.com/0x1C000/WindowsScript/tree/main/CryptoMiner_scanner" class="gruv-button">View on GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CERTIFICATIONS SECTION -->
+      <div id="certificatesSection" class="section">
+        <h2 class="section-header">Certifications</h2>
+        <div class="certificates-grid">
+          <div class="certificate-card">
+            <div class="certificate-header">
+              <i class="fas fa-certificate certificate-icon"></i>
+              <h4>eJPT</h4>
+            </div>
+            <div class="certificate-content">
+              <p class="certificate-description">eLearnSecurity Junior Penetration Tester – In progress</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTF SECTION -->
+      <div id="ctfSection" class="section">
+        <h2 class="section-header">Capture The Flag</h2>
+        <div class="ctf-badge-container">
+          <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4739468" style="border:none;"></iframe>
+        </div>
+      </div>
+
+      <!-- CONTACT SECTION -->
+      <div id="contactSection" class="section">
+        <h2 class="section-header">Contact Information</h2>
+        <div class="contact-info">
+          <p><i class="fas fa-envelope"></i> <a href="mailto:0x1C0@protonmail.com">0x1C0@protonmail.com</a></p>
+          <p><i class="fab fa-telegram-plane"></i> <a href="https://t.me/Ox1C0" target="_blank">t.me/Ox1C0</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Main functionality: GitHub fetch, visitor-info, CLI, scroll-to-top, theme -->
+  <script>
+    // 1) Populate visitorInfo terminal with sample lines
+    (function updateVisitor() {
+      const lines = [
+        'Good day, visitor.',
+        `Your IP: ${location.hostname || '127.0.0.1'}`,
+        'Connection: secure.',
+        'Loading portfolio... done.'
+      ];
+      const container = document.getElementById('visitorInfo');
+      lines.forEach((l, i) => {
+        setTimeout(() => {
+          const div = document.createElement('div');
+          div.className = 'terminal-line';
+          div.textContent = l;
+          container.appendChild(div);
+          container.scrollTop = container.scrollHeight;
+        }, i * 600);
+      });
+    })();
+
+    // 2) Toggle sections
+    function toggleSection(id) {
+      ['projects','certificates','ctf','contact'].forEach(s =>
+        document.getElementById(s + 'Section').classList.remove('visible')
+      );
+      document.querySelectorAll('.social-links .gruv-button').forEach(b =>
+        b.classList.remove('active')
+      );
+      document.getElementById(id + 'Section').classList.add('visible');
+      document.querySelector(`.social-links .gruv-button[onclick="toggleSection('${id}')"]`)
+        .classList.add('active');
+    }
+
+    // 3) Filter projects
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.getAttribute('data-filter');
+        document.querySelectorAll('#github-projects .project-card').forEach(card => {
+          card.style.display = (f === 'all' || card.classList.contains(f)) ? 'flex' : 'none';
+        });
+      });
+    });
+
+    // 4) GitHub fetch (populate github-projects)
+    (async function fetchRepos() {
+      try {
+        const resp = await fetch('https://api.github.com/users/0x1C000/repos');
+        const repos = await resp.json();
+        const container = document.getElementById('github-projects');
+        repos.sort((a,b)=> new Date(b.pushed_at)-new Date(a.pushed_at))
+             .slice(0,5)
+             .forEach(r => {
+          const card = document.createElement('div');
+          card.className = 'project-card ' + (r.language||'').toLowerCase().replace(/\s+/g,'-');
+          card.innerHTML = `
+            <h3 class="project-title"><a href="${r.html_url}" target="_blank">${r.name}</a></h3>
+            <p class="project-description-github">${r.description||''}</p>
+            <a href="${r.html_url}" class="gruv-button">View on GitHub</a>
+          `;
+          container.appendChild(card);
+        });
+      } catch(e){ console.error('GitHub fetch failed', e); }
+    })();
+
+    // 5) Theme toggle
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      document.getElementById('themeIcon').classList.toggle('fa-sun');
+      document.getElementById('themeIcon').classList.toggle('fa-moon');
+    });
+
+    // 6) CLI overlay
+    const cli = document.getElementById('cliContainer');
+    document.getElementById('bunnyTrigger').addEventListener('click', () => {
+      cli.classList.toggle('hidden');
+      if(!cli.classList.contains('hidden')){
+        document.getElementById('cliCommand').focus();
+      }
+    });
+    document.getElementById('cliCommand').addEventListener('keypress', e => {
+      if(e.key==='Enter'){
+        const out = document.getElementById('cliOutput');
+        const cmd = e.target.value;
+        const line = document.createElement('div'); line.textContent = '$ ' + cmd;
+        out.appendChild(line);
+        e.target.value='';
+        out.scrollTop = out.scrollHeight;
+      }
+    });
+
+    // 7) Scroll to top button
+    const scrollBtn = document.getElementById('scrollToTopBtn');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 300) scrollBtn.classList.remove('hidden');
+      else scrollBtn.classList.add('hidden');
+    });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+
+  <!-- CLI overlay & Easter eggs -->
+  <div id="cliContainer" class="cli-container hidden">
+    <div class="cli-output" id="cliOutput"></div>
+    <div class="cli-input">
+      <span class="prompt gruv-red">$</span>
+      <input type="text" id="cliCommand" autocomplete="off" spellcheck="false"/>
+    </div>
+  </div>
+  <div id="bunnyTrigger" class="bunny-trigger"><i class="fas fa-terminal"></i><span class="try-me">Cli Me!</span></div>
+  <button id="scrollToTopBtn" class="scroll-to-top-btn hidden" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+</body>
+</html>
