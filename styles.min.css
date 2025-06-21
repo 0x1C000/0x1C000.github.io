@@ -463,3 +463,128 @@ h1 {
     cursor: pointer;
     display: flex;
 }
+
+@media (max-width: 480px) {
+  /* Container generale */
+  .container {
+    width: 100%;
+    padding: 1rem;
+    margin: 0;
+  }
+
+  /* Card profilo */
+  .profile-card {
+    padding: 1.2rem;
+    border-radius: 8px;
+  }
+
+  .profile-img {
+    width: 120px;
+    height: 120px;
+    border-width: 3px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .alias {
+    font-size: 0.95rem;
+  }
+
+  .typing-bio {
+    font-size: 0.9rem;
+  }
+
+  /* Terminal box */
+  .terminal-box {
+    margin: 1rem 0;
+  }
+
+  .terminal-body {
+    font-size: 0.8rem;
+    max-height: 120px;
+  }
+
+  /* Pulsanti social */
+  .social-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .gruv-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  /* Sezioni */
+  .section-header {
+    font-size: 1.4rem;
+  }
+
+  /* Griglia progetti */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .project-card {
+    padding: 1rem;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+  }
+
+  .project-description-github {
+    font-size: 0.8rem;
+  }
+
+  .project-info {
+    font-size: 0.75rem;
+  }
+
+  .project-stats {
+    font-size: 0.75rem;
+  }
+
+  /* CTF badge */
+  .ctf-badge-container iframe {
+    height: 200px;
+  }
+
+  /* Contact info */
+  .contact-info p {
+    font-size: 1rem;
+  }
+
+  /* CLI container */
+  .cli-container {
+    padding: 0.8rem;
+  }
+
+  .cli-output {
+    font-size: 0.8rem;
+  }
+
+  .cli-input input {
+    font-size: 0.9rem;
+  }
+
+  /* Bunny trigger & scroll button */
+  .bunny-trigger {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .scroll-to-top-btn {
+    width: 40px;
+    height: 40px;
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 1rem;
+  }
+}
