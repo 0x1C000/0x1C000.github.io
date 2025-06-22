@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Akirayuki.online",
+    "html_url": "https://akirayuki.online",
+    "description": "Collection of security tools and research hosted on Akirayuki.online.",
+    "language": "HTML",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "watchers_count": 0
+  },
+  {
+    "name": "CryptoMiner scanner AV",
+    "html_url": "https://github.com/0x1C000/WindowsScript/tree/main/CryptoMiner_scanner",
+    "description": "Windows utility that scans for cryptomining infections by checking processes, scheduled tasks and registry.",
+    "language": "PowerShell",
+    "stargazers_count": 3,
+    "forks_count": 1,
+    "watchers_count": 1
+  }
+
+  {
+    "name": "Flipper Zero",
+    "html_url": "https://github.com/0x1C000/FlipperZero",
+    "description": "Collection of various Flipper Zero scripts.",
+    "language": "HTML",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "watchers_count": 0
+
+  {
+    "name": "Pentesting Tools",
+    "html_url": "https://github.com/0x1C000/Pentesting-Tools",
+    "description": "Collection of tools for Penetration Tester.",
+    "language": "Python, Bash",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "watchers_count": 0
+
+]
