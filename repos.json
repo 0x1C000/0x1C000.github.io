@@ -28,7 +28,7 @@
   },
   {
     "name": "Pentesting Tools",
-    "html_url": "https://github.com/0x1C000/Pentesting-Tools",
+    "html_url": "https://github.com/0x1C000/PentestingTools",
     "description": "Collection of tools for Penetration Tester.",
     "language": "Python, Bash",
     "stargazers_count": 0,
